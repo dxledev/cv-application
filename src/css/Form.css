@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-fade-down: fade-down 0.6s ease-in-out both;
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-35px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --color-bg: #dee7f4;
+  --color-subheading: #26233a;
+  --color-input-bg: rgb(38, 35, 58);
+  --color-input-text: #ebbcba;
+  --color-submit-button: #f6c177;
+  --color-submit-hover: #f8cc90;
+  --color-submitted-button: #9ccfd8;
+  --color-button-border: #31748f;
+  --color-submit-text: rgb(38, 35, 58);
+}
+
+.form {
+  @apply bg-bg flex flex-col gap-8 p-8 rounded-2xl drop-shadow-xl animate-fade-down;
+}
+
+.form-subheading {
+  @apply pl-0.5 pb-5 font-bold text-subheading;
+}
+
+.submit {
+  @apply p-2 bg-submit-button w-1/8 self-end mr-20 text-xl text-submit-text font-bold border-button-border border-2 
+    outline-none rounded-xl hover:bg-submit-hover cursor-pointer hover:scale-110 transition-transform duration-300;
+}
+
+.input {
+  @apply bg-input-bg text-2xl text-input-text pl-3 rounded-xl outline-none pt-1 pb-1 border-2 border-input-bg
+    drop-shadow-2xl font-bold bg-clip-padding focus:inset-ring focus:inset-ring-input-text
+    focus:border-input-text;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-input-text) !important;
+  caret-color: var(--color-input-text);
+  box-shadow: 0 0 0 1000px var(--color-input-bg) inset;
+}
+
+.input::spelling-error {
+  color: var(--color-input-text);
+}
+
+

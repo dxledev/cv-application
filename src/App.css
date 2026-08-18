@@ -1,22 +1,31 @@
 @import "tailwindcss";
 
+@theme {
+  --color-header: rgb(31, 29, 46);
+  --color-header-text: rgb(224, 222, 244);
+  --color-header-text-hover: rgb(49, 116, 143);
+  --color-body: rgb(224, 222, 244);
+  --color-footer: rgb(144, 140, 170);
+}
+
 .app {
   @apply text-4xl flex flex-col justify-between min-h-screen;
 }
 
 .header {
   @apply grid grid-cols-[1fr_auto_1fr] items-center
-         border-b-gray-600 border-b-2 h-[6vh];
+         h-[6vh] bg-header text-header-text font-bold drop-shadow-lg;
 }
 
 .footer {
-  @apply border-t-pink-300 border-t-2 h-[5vh];
+  @apply h-[5vh] bg-footer text-header-text;
 }
 
 .body {
-  @apply h-[60%];
+  @apply flex-1 flex items-center justify-center bg-body;
 }
 
 .link {
-  @apply pl-10 justify-self-start text-2xl self-end pb-2;
+  @apply pl-10 justify-self-start text-2xl
+    underline hover:text-header-text-hover;
 }
