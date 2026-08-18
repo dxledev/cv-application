@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.app {
+  @apply text-4xl flex flex-col justify-between min-h-screen;
+}
+
+.header {
+  @apply grid grid-cols-[1fr_auto_1fr] items-center
+         border-b-gray-600 border-b-2 h-[6vh];
+}
+
+.footer {
+  @apply border-t-pink-300 border-t-2 h-[5vh];
+}
+
+.body {
+  @apply h-[60%];
+}
+
+.link {
+  @apply pl-10 justify-self-start text-2xl self-end pb-2;
+}
