@@ -26,7 +26,7 @@
 }
 
 .form {
-  @apply bg-bg flex flex-col gap-8 p-8 rounded-2xl drop-shadow-xl animate-fade-down;
+  @apply bg-bg flex flex-col gap-8 p-8 rounded-2xl drop-shadow-xl animate-fade-down w-3/4;
 }
 
 .form-subheading {
@@ -34,7 +34,7 @@
 }
 
 .submit {
-  @apply p-2 bg-submit-button w-1/8 self-end mr-20 text-xl text-submit-text font-bold border-button-border border-2 
+  @apply p-2 bg-submit-button min-w-1/8 self-center lg:self-end lg:mr-30 text-xl text-submit-text font-bold border-button-border border-2 
     outline-none rounded-xl hover:bg-submit-hover cursor-pointer hover:scale-110 transition-transform duration-300;
 }
 
@@ -42,6 +42,10 @@
   @apply bg-input-bg text-2xl text-input-text pl-3 rounded-xl outline-none pt-1 pb-1 border-2 border-input-bg
     drop-shadow-2xl font-bold bg-clip-padding focus:inset-ring focus:inset-ring-input-text
     focus:border-input-text;
+}
+
+.section {
+  @apply flex flex-col gap-10;
 }
 
 .input:-webkit-autofill,
