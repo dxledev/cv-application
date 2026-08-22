@@ -23,6 +23,7 @@
   --color-submitted-button: #9ccfd8;
   --color-button-border: #31748f;
   --color-submit-text: rgb(38, 35, 58);
+  --color-placeholder-bg: #e0def4;
 }
 
 .form {
@@ -30,7 +31,7 @@
 }
 
 .form-subheading {
-  @apply pl-0.5 pb-5 font-bold text-subheading;
+  @apply pb-1 font-bold text-subheading;
 }
 
 .submit {
@@ -40,12 +41,21 @@
 
 .input {
   @apply bg-input-bg text-2xl text-input-text pl-3 rounded-xl outline-none pt-1 pb-1 border-2 border-input-bg
-    drop-shadow-2xl font-bold bg-clip-padding focus:inset-ring focus:inset-ring-input-text
+    drop-shadow-lg font-bold bg-clip-padding focus:inset-ring focus:inset-ring-input-text
     focus:border-input-text;
 }
 
 .section {
   @apply flex flex-col gap-10;
+}
+
+.edit-button {
+  @apply cursor-pointer border-none bg-transparent hover:scale-110 duration-300 
+    transition-transform focus:outline-none focus:ring-0;
+}
+
+.placeholder {
+  @apply bg-placeholder-bg rounded-lg text-xl drop-shadow-lg p-4 text-subheading italic;
 }
 
 .input:-webkit-autofill,

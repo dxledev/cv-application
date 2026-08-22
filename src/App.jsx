@@ -5,7 +5,7 @@ import Form from './components/Form.jsx'
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <Link link="https://github.com/dxledev/cv-application">
         GitHub
       </Link>
@@ -13,7 +13,7 @@ function Header() {
       <div className="justify-self-center">
         CV Generator
       </div>
-    </div>
+    </header>
   )
 }
 

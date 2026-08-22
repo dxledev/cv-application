@@ -1,133 +1,77 @@
+// TODO
+// - add an empty placeholder for no input fields
+
+import { useState } from "react";
+import editButton from '../assets/edit-button.svg';
+import GeneralInformation from './form-components/GeneralInformation.jsx';
+import Education from './form-components/Education.jsx';
+import Experience from './form-components/Experience.jsx'
+
 function Section({ children, subheading, className }) {
+  const [isEditing, setIsEditing] = useState(false);
+
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-row pb-3 gap-5 pl-0.5 items-center">
         <h1 className="form-subheading">{subheading}</h1>
+        {!isEditing && (
+          <button 
+            className="size-7 edit-button pb-8"
+            onClick={() => setIsEditing(true)}
+          >
+            <img 
+              src={editButton}
+              alt="Edit"
+            />
+          </button>
+        )}
       </div> 
 
       <div className={`flex flex-col ${className}`}>
-        {children} 
+        {children({ isEditing, setIsEditing })} 
       </div> 
     </div>
-  );
-}
-
-function GeneralInformation() {
-  return (
-    <div className="section">
-      <div className="grid grid-cols-1 lg:grid-cols-3 text-2xl gap-5">
-        <input
-          placeholder="First Name"
-          className="input"
-        />
-        <input
-          placeholder="Middle Name"
-          className="input"
-        />
-        <input
-          placeholder="Last Name"
-          className="input"
-        />
-        <input 
-          placeholder="Email"
-          className="input"
-        />
-        <input 
-          placeholder="Phone Number"
-          className="input"
-        />
-      </div>
-
-      <SubmitButton />
-    </div>
-  );
-}
-
-function Education() {
-  return (
-    <div className="section">
-      <div className="grid grid-cols-1 lg:grid-cols-3 text-2xl gap-5">
-        <input
-          placeholder="School"
-          className="input"
-        />
-        <input 
-          placeholder="Major"
-          className="input"
-        />
-        <input
-          placeholder="Field of Study"
-          className="input"
-        />
-        <input 
-          placeholder="Start Date"
-          className="input"
-        />
-        <input
-          placeholder="End Date"
-          className="input"
-        />
-      </div>
-      <SubmitButton />
-    </div>
-  );
-}
-
-function Experience() {
-  return (
-    <div className="section">
-      <div className="grid grid-cols-1 lg:grid-cols-2 text-2xl gap-5">
-        <input 
-          placeholder="Company Name"
-          className="input"
-        />
-        <input 
-          placeholder="Position Title"
-          className="input"
-        />
-        <textarea 
-          placeholder="Responsibilities"
-          className="input overflow-hidden"
-        />
-        <div className="flex flex-row gap-5 justify-between">
-          <input 
-            placeholder="Start Date"
-            className="input self-start w-1/2"
-          />
-          <input 
-            placeholder="End Date"
-            className="input self-start w-1/2"
-          />
-        </div>
-      </div>
-
-      <SubmitButton />
-    </div>
-    
-  );
-}
-
-function SubmitButton() {
-  return (
-    <button className="submit">
-      Submit
-    </button>
   );
 }
 
 function Form() {
+  const [generalInfo, setGeneralInfo] = useState({});
+  const [education, setEducation] = useState({});
+  const [experience, setExperience] = useState({});
+
   return (
     <div className="form">
       <Section subheading="General Information">
-        <GeneralInformation />
+        {({ isEditing, setIsEditing }) => (
+          <GeneralInformation
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            generalInfo={generalInfo}
+            setGeneralInfo={setGeneralInfo}
+          />
+        )}
       </Section>
       
       <Section subheading="Education">
-        <Education />
+        {({ isEditing, setIsEditing }) => (
+          <Education
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            education={education}
+            setEducation={setEducation}
+          />
+        )}
       </Section>
 
       <Section subheading="Experience">
-        <Experience />
+        {({ isEditing, setIsEditing }) => (
+          <Experience
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            experience={experience}
+            setExperience={setExperience}
+          />
+        )}
       </Section>
     </div>
   );
